@@ -34,7 +34,7 @@ const setFood = (arr = []) => {
   return makeFoodHtml(arr);
 }
 
-const filterFood= (arr = []) => {
+const filterFood = (arr = []) => {
   if (currentCity && currentDistrict) {
     data.map(item => {
       if (item.Town === currentDistrict) {
@@ -60,20 +60,23 @@ const makeFoodHtml = (arr) => {
   arr.map((item) => {
     str += `
       <li class="food__item">
-        ${item?.Url && `<a href=${item.Url} target="_blank">`}
-          <div class="food__desc">
-            <span class="food__location">${item.Town}</span>
-            <h2 class="food__restaurant">${item.Name}</h2>
-            <div class="food__underline"></div>
-            <p class="food__details">${item.FoodFeature.substring(0, 43)}...</p>
-          </div>
-          <span class="food__tag">${item.City}</span>
-          <div class="food__imgContainer">
-            <img class="food__img img-resp" src=${item.PicURL} alt=${item.Name} loading="lazy"/>
-          </div>
-          <div class="food__filter"></div>
-        ${item.Url && `</a>`}
-        </li>`;
+        <div class="food__gutter">
+          ${item?.Url && `<a href="${item.Url}" target="_blank">`}
+            <div class="food__desc">
+              <span class="food__location">${item.Town}</span>
+              <h2 class="food__restaurant">${item.Name}</h2>
+              <p class="food__details">${item.FoodFeature.substring(0, 43)}...</p>
+            </div>
+            <span class="food__tag">${item.City}</span>
+            <div class="food__imgContainer">
+              <div class="food__img" 
+                style="background-image: linear-gradient(to top,rgba( 0, 0, 0, .5), rgba( 0, 0, 0, .1)), url(${item.PicURL})">
+                ${item.Name}
+              </div>
+            </div>
+          ${item.Url && `</a>`}
+        <div>
+      </li>`;
   });
   return str;
 }
@@ -101,7 +104,7 @@ const makeDropdownHtml = (keyword, arr = []) => {
     ? elementCity.innerHTML
     : '<option class="filter__dropdownItem" value="" id="default-option" selected disabled>請選擇鄉鎮區...</option>';
   arr.map(item => {
-    dropdownStr += `<option class="filter__dropdownItem" id="dropdown-item" value=${item}>${item}</option>`;
+    dropdownStr += `<option class="filter__dropdownItem" value="${item}">${item}</option>`;
   })
   return dropdownStr;
 }
