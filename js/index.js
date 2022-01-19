@@ -59,7 +59,7 @@ const makeFoodHtml = (arr) => {
   let str = '';
   arr.map((item) => {
     str += `
-      <li class="food__item food__item-transition">
+      <li class="food__item">
         ${item?.Url && `<a href=${item.Url} target="_blank">`}
           <div class="food__desc">
             <span class="food__location">${item.Town}</span>
