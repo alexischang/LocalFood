@@ -62,12 +62,12 @@ const makeFoodHtml = (arr) => {
       <li class="food__item food__item-transition">
         ${item?.Url && `<a href=${item.Url} target="_blank">`}
           <div class="food__desc">
-            <h5 class="food__location">${item.Town}</h5>
-            <h4 class="food__restaurant">${item.Name}</h4>
+            <span class="food__location">${item.Town}</span>
+            <h2 class="food__restaurant">${item.Name}</h2>
             <div class="food__underline"></div>
             <p class="food__details">${item.FoodFeature.substring(0, 43)}...</p>
           </div>
-          <h5 class="food__tag">${item.City}</h5>
+          <span class="food__tag">${item.City}</span>
           <div class="food__imgContainer">
             <img class="food__img img-resp" src=${item.PicURL} alt=${item.Name} loading="lazy"/>
           </div>
@@ -99,9 +99,9 @@ const makeDropdownHtml = (keyword, arr = []) => {
   arr = getDropdowns(keyword, arr);
   let dropdownStr = keyword === 'City'
     ? elementCity.innerHTML
-    : '<option class="filter__dropdown-item" value="" id="default-option" selected disabled>請選擇鄉鎮區...</option>';
+    : '<option class="filter__dropdownItem" value="" id="default-option" selected disabled>請選擇鄉鎮區...</option>';
   arr.map(item => {
-    dropdownStr += `<option class="filter__dropdown-item" id="dropdown-item" value=${item}>${item}</option>`;
+    dropdownStr += `<option class="filter__dropdownItem" id="dropdown-item" value=${item}>${item}</option>`;
   })
   return dropdownStr;
 }
