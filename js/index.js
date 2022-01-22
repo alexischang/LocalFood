@@ -69,10 +69,7 @@ const makeFoodHtml = (arr) => {
             </div>
             <span class="food__tag">${item.City}</span>
             <div class="food__imgContainer">
-              <div class="food__img" 
-                style="background-image: linear-gradient(to top,rgba( 0, 0, 0, .5), rgba( 0, 0, 0, .1)), url(${item.PicURL})">
-                ${item.Name}
-              </div>
+              <img class="food__img img-resp" src="${item.PicURL}" alt="${item.Name}" loading="lazy">
             </div>
           ${item.Url && `</a>`}
         <div>

@@ -83,15 +83,12 @@ ul {
 .food__desc {
   position: absolute;
   z-index: 2;
-  bottom: -35%;
+  bottom: -43%;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .food__location {
-  padding-right: 10px;
-  padding-bottom: 33px;
-  border-bottom: 3px solid #fff;
   font-size: .9rem;
   font-style: italic;
   color: #ddd;
@@ -103,6 +100,15 @@ ul {
   font-weight: 500;
   color: #fff;
 }
+
+.food__restaurant::after {
+  content: '';
+  display: block;
+  width: 50px;
+  padding-top: 10px;
+  border-bottom: 3px solid #fff;
+}
+
 
 .food__details {
   padding-top: 5px;
@@ -126,10 +132,14 @@ ul {
   height: 100%;
 }
 
-.food__img {
-  background-size: cover;
+
+.food__imgContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100%;
-  text-indent: -9999px;
+  background-image: linear-gradient(to top,rgba( 0, 0, 0, .5), rgba( 0, 0, 0, .1));
 }
 
 /* Module loading */
